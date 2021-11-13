@@ -1,0 +1,70 @@
+To start a Node.js & Express.js server, you will:
+
+First you will CD into your project folder:
+cd "  "/
+
+Then you will install Express.js & package.JSON:
+npm init
+npm install 
+npm install express.js
+npm install nodemon
+npm install body-parser
+touch server.js
+
+Then you will go into package.JSON and change accordinigly:
+{
+  "name": "smart-brain-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express.js": "^1.0.0",
+    "nodemon": "^2.0.14"
+  }
+}
+
+After that, you will start the server by:
+npm start
+----------------------------------------------------------------------
+Then you will log into yout postman and change the server to GET:
+localhost:3000/
+
+Root route- responds with this is working, the GET request
+
+Sign In- This is our POST request, to get people to sign on
+Sign In will either respond with success or fail
+
+Register- POST request because we want to add the datat to the database or server. The returns will be the user object
+
+Profile: This will return with the user ID | This will get a GET request because we want to return the user information
+
+Image: This will be a PUT request, we are making updates to the user profile
+--------------------------------------------------------------------------
+CONNECTING THE SERVER TO THE FRONT-END REACT APP:
+
+When connecting the front end to a server, you will:
+
+Go into your react folder and go into app.js and type:
+ componentDidMount() {
+    fetch('http://localhost:3001/')
+    .then(response => response.json())
+    .then(console.log)
+  }
+
+Run both applications on a local host and npm start:
+You will most likely get an error
+To fix this, you will:
+npm install cors
+Then in your server.js file, input:
+
+const cors = require('cors');
+---------------------------
+app.use(cors())
+
